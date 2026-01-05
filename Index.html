@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Feliz Cumpleaños</title>
+    <meta name="theme-color" content="#fff1f2">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Roboto:wght@300;400;500&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden; 
+            margin: 0;
+            padding: 0;
+            overscroll-behavior: none;
+            background-color: #fff1f2;
+        }
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Animaciones Personalizadas */
+        .slide-enter {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .slow-bounce {
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .star-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .plane-path {
+            animation: planeMove 4s ease-in-out infinite;
+        }
+
+        @keyframes planeMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(15px, -15px) rotate(-10deg); }
+        }
+
+        /* Ocultar barra de scroll pero permitir funcionamiento */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="h-screen w-screen flex items-center justify-center select-none">
+
+    <!-- Contenedor Principal (Simulación de App Móvil) -->
+    <div class="w-full h-full max-w-md bg-white relative flex flex-col overflow-hidden shadow-2xl sm:rounded-[2.5rem] border border-rose-100">
+        
+        <!-- Indicadores de Progreso Superiores -->
+        <div class="absolute top-8 left-0 right-0 flex justify-center gap-2 z-30">
+            <div id="dot-0" class="h-1.5 rounded-full transition-all duration-300 w-8 bg-rose-500 shadow-sm"></div>
+            <div id="dot-1" class="h-1.5 rounded-full transition-all duration-300 w-2 bg-rose-200 shadow-sm"></div>
+            <div id="dot-2" class="h-1.5 rounded-full transition-all duration-300 w-2 bg-rose-200 shadow-sm"></div>
+        </div>
+
+        <!-- Área de Contenido -->
+        <div id="content-area" class="flex-grow relative w-full h-full">
+            
+            <!-- PÁGINA 1: PORTADA COMPLETA -->
+            <div id="slide-0" class="absolute inset-0 w-full h-full flex flex-col items-center justify-evenly p-8 bg-gradient-to-b from-white via-rose-50 to-rose-100 transition-opacity duration-500">
+                <!-- Esquineros Decorativos -->
+                <div class="absolute top-6 left-6 w-16 h-16 border-t-2 border-l-2 border-rose-200 rounded-tl-2xl opacity-40"></div>
+                <div class="absolute top-6 right-6 w-16 h-16 border-t-2 border-r-2 border-rose-200 rounded-tr-2xl opacity-40"></div>
+                <div class="absolute bottom-6 left-6 w-16 h-16 border-b-2 border-l-2 border-rose-200 rounded-bl-2xl opacity-40"></div>
+                <div class="absolute bottom-6 right-6 w-16 h-16 border-b-2 border-r-2 border-rose-200 rounded-br-2xl opacity-40"></div>
+
+                <!-- Elementos Animados de Fondo -->
+                <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                    <i data-lucide="heart" class="absolute top-24 left-12 text-rose-200 w-8 h-8 floating" style="animation-delay: 0s"></i>
+                    <i data-lucide="star" class="absolute top-48 right-16 text-rose-300 w-6 h-6 star-pulse"></i>
+                    <i data-lucide="heart" class="absolute bottom-64 left-16 text-rose-100 w-10 h-10 floating" style="animation-delay: 1.5s"></i>
+                    <i data-lucide="plane" class="absolute bottom-28 right-12 text-rose-200 w-12 h-12 plane-path"></i>
+                </div>
+
+                <div class="z-10 flex flex-col items-center text-center w-full h-full justify-center gap-10">
+                    <div class="relative">
+                        <h1 class="text-7xl font-black text-rose-500 leading-none drop-shadow-md tracking-tight">
+                            ¡Feliz<br/>
+                            <span class="text-rose-400 text-6xl block mt-2">Cumple!</span>
+                        </h1>
+                    </div>
+
+                    <div class="w-full">
+                        <h2 class="text-5xl text-slate-700 font-medium italic serif leading-tight">
+                           Gordita<br/>Hermosa
+                        </h2>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-44 h-44 bg-rose-200/40 rounded-full blur-3xl animate-pulse"></div>
+                        <div class="bg-white p-7 rounded-full shadow-2xl border-4 border-rose-50 relative z-10 slow-bounce">
+                             <i data-lucide="cake" class="w-16 h-16 text-rose-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA 2: CARTA CON CORAZONES Y EMOJIS CORRECTOS -->
+            <div id="slide-1" class="absolute inset-0 w-full h-full flex flex-col items-center justify-center p-8 bg-white hidden opacity-0 transition-opacity duration-500 overflow-y-auto">
+                <div class="absolute top-0 left-0 w-full h-2 bg-rose-400"></div>
+                
+                <!-- Corazones de fondo -->
+                <div class="absolute inset-0 opacity-10 pointer-events-none">
+                    <i data-lucide="heart" class="absolute top-32 right-8 text-rose-500 w-12 h-12 floating"></i>
+                    <i data-lucide="heart" class="absolute bottom-40 left-8 text-rose-500 w-10 h-10 floating" style="animation-delay: 2s"></i>
+                </div>
+
+                <div class="z-10 text-center w-full flex flex-col items-center justify-center h-full">
+                    <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-rose-50 text-rose-500 shadow-inner star-pulse">
+                        <i data-lucide="heart" class="w-8 h-8 fill-current"></i>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-slate-800 mb-6 serif">Para la más linda del mundo...</h2>
+                    
+                    <div class="relative max-w-xs mx-auto">
+                        <p class="text-[15.5px] leading-relaxed text-slate-600 font-light whitespace-pre-line text-justify px-2 relative z-10">
+                        Gordita de mi vida, te deseo el mejor cumpleaños de todos, la verdad se me cruzó mil veces el sentimiento de tristeza de no poder pasarlo con vos pero lo pienso y me alegra mucho que lo puedas pasar viajando y en familia. Ya nos tocará pasarlo juntos de viaje (el año que viene) ✈️
+
+                        Te juro ya te extraño un monto, eso que te fuiste hace nada 🥺 jaja. Disfrute el viaje y el cumpleaños. Nos vemos a la vuelta te amo te amo te amo ❤️ ❤️
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA 3: VALE REGALO TICKET FULL -->
+            <div id="slide-2" class="absolute inset-0 w-full h-full flex flex-col items-center justify-center p-6 bg-rose-50 hidden opacity-0 transition-opacity duration-500">
+                 <!-- Decoración fondo -->
+                 <div class="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
+                    <i data-lucide="star" class="absolute top-20 left-10 w-6 h-6 text-rose-400 star-pulse"></i>
+                    <i data-lucide="heart" class="absolute bottom-32 right-12 w-8 h-8 text-rose-400 floating"></i>
+                 </div>
+
+                 <div class="w-full bg-white rounded-3xl shadow-2xl relative z-10 p-8 py-12 text-center flex flex-col items-center justify-center border-2 border-dashed border-rose-200">
+                    <!-- Muescas laterales del ticket -->
+                    <div class="absolute top-1/2 -left-4 w-8 h-8 bg-rose-50 rounded-full -translate-y-1/2 border-r-2 border-dashed border-rose-200"></div>
+                    <div class="absolute top-1/2 -right-4 w-8 h-8 bg-rose-50 rounded-full -translate-y-1/2 border-l-2 border-dashed border-rose-200"></div>
+
+                    <h3 class="text-rose-400 font-bold tracking-[0.5em] text-xs uppercase mb-8">VALE POR</h3>
+
+                    <div class="mb-8 slow-bounce">
+                         <div class="w-24 h-24 bg-rose-50 rounded-full flex items-center justify-center shadow-md border-4 border-white">
+                            <i data-lucide="moon" class="w-12 h-12 text-rose-500 fill-rose-100"></i>
+                         </div>
+                    </div>
+
+                    <h2 class="text-3xl font-black text-slate-800 mb-2 leading-tight serif">Noche Romántica</h2>
+                    <p class="text-lg text-rose-500 font-medium italic mb-10">Incluye: Cocinar juntos - A5taC - Masajes</p>
+                    
+                    <div class="w-full border-t border-slate-100 mb-8"></div>
+
+                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-[0.25em] leading-relaxed">
+                        VALIDO PARA CUANDO VUELVAS A CASA ❤️
+                    </p>
+               </div>
+
+               <div class="mt-12 star-pulse text-rose-400">
+                  <i data-lucide="heart" class="w-10 h-10 fill-current"></i>
+              </div>
+            </div>
+
+        </div>
+
+        <!-- Barra de Navegación Inferior -->
+        <div class="h-24 flex items-center justify-between px-10 bg-white/95 backdrop-blur-md border-t border-rose-50 z-30">
+            <button id="prevBtn" onclick="changeSlide(-1)" class="p-3 text-slate-300 opacity-0 cursor-default transition-all duration-300">
+                <i data-lucide="chevron-left" class="w-10 h-10"></i>
+            </button>
+
+            <div class="flex flex-col items-center">
+                 <span id="page-indicator" class="text-sm font-bold text-slate-400 tracking-widest uppercase">1 / 3</span>
+            </div>
+
+            <button id="nextBtn" onclick="changeSlide(1)" class="p-3 text-rose-500 hover:scale-125 active:scale-95 transition-all duration-300">
+                 <i data-lucide="chevron-right" class="w-10 h-10"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Inicializar Iconos
+        lucide.createIcons();
+
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                // Ocultar el actual
+                const currentEl = document.getElementById(`slide-${currentSlide}`);
+                currentEl.classList.add('opacity-0', 'hidden'); 
+                
+                // Actualizar el índice
+                currentSlide = newSlide;
+
+                // Mostrar el nuevo con animación
+                const nextEl = document.getElementById(`slide-${currentSlide}`);
+                nextEl.classList.remove('hidden');
+                void nextEl.offsetWidth; // Forzar repintado
+                nextEl.classList.remove('opacity-0');
+                nextEl.classList.add('slide-enter');
+
+                updateUI();
+            }
+        }
+
+        function updateUI() {
+            // Puntitos de progreso
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                if (i === currentSlide) {
+                    dot.className = "h-1.5 rounded-full transition-all duration-500 w-8 bg-rose-500 shadow-sm";
+                } else {
+                    dot.className = "h-1.5 rounded-full transition-all duration-500 w-2 bg-rose-200 shadow-sm";
+                }
+            }
+
+            // Número de página
+            document.getElementById('page-indicator').innerText = `${currentSlide + 1} / ${totalSlides}`;
+
+            // Control de botones
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (currentSlide === 0) {
+                prevBtn.classList.add('opacity-0', 'cursor-default');
+                prevBtn.style.pointerEvents = "none";
+            } else {
+                prevBtn.classList.remove('opacity-0', 'cursor-default');
+                prevBtn.style.pointerEvents = "auto";
+                prevBtn.classList.add('text-slate-400');
+            }
+            
+            if (currentSlide === totalSlides - 1) {
+                nextBtn.classList.add('opacity-0', 'cursor-default');
+                nextBtn.style.pointerEvents = "none";
+            } else {
+                nextBtn.classList.remove('opacity-0', 'cursor-default');
+                nextBtn.style.pointerEvents = "auto";
+            }
+        }
+    </script>
+</body>
+</html>
